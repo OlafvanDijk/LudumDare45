@@ -17,19 +17,7 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private GameObject loseCanvas;
 
-    private float starCount;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private int starCount;
 
     public void AddStar()
     {
@@ -41,6 +29,13 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < starCount; i++)
         {
             Stars[i].sprite = star;
+        }
+
+        int highscore = PlayerPrefs.GetInt("L1");
+
+        if (starCount > highscore)
+        {
+            PlayerPrefs.SetInt("L1", starCount);
         }
 
         winCanvas.SetActive(true);
