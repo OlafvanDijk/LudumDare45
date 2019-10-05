@@ -17,11 +17,22 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private GameObject loseCanvas;
 
+    [SerializeField]
+    private AudioClip pickupStar;
+
+    [SerializeField]
+    private AudioClip finish;
+
+    [SerializeField]
+    private AudioSource audio;
+
     private int starCount;
 
     public void AddStar()
     {
         starCount++;
+        audio.clip = pickupStar;
+        audio.Play();
     }
 
     public void Finish()
@@ -38,6 +49,8 @@ public class GameController : MonoBehaviour
             PlayerPrefs.SetInt("L1", starCount);
         }
 
+        audio.clip = finish;
+        audio.Play();
         winCanvas.SetActive(true);
     }
 
