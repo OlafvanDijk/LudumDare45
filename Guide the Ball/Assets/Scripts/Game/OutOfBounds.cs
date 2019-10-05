@@ -18,7 +18,6 @@ public class OutOfBounds : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.tag);
         if (finish == false)
         {
             if (other.CompareTag("Player"))

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -86,12 +87,12 @@ public class GameController : MonoBehaviour
         {
             Stars[i].sprite = star;
         }
-
-        int highscore = PlayerPrefs.GetInt("L1");
+        string currentLvl = SceneManager.GetActiveScene().name;
+        int highscore = PlayerPrefs.GetInt(currentLvl);
 
         if (starCount > highscore)
         {
-            PlayerPrefs.SetInt("L1", starCount);
+            PlayerPrefs.SetInt(currentLvl, starCount);
         }
 
         audio.clip = finish;
