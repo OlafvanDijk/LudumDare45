@@ -15,7 +15,9 @@ public class FillStars : MonoBehaviour
     [SerializeField]
     private Sprite star;
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Update star sprites
+    /// </summary>
     void Awake()
     {
         int starcount = PlayerPrefs.GetInt(prefName);

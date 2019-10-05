@@ -5,7 +5,6 @@ using UnityEngine.Events;
 
 public class UnFreezeBall : MonoBehaviour
 {
-
     [SerializeField]
     private Rigidbody2D rigidbody;
 
@@ -15,7 +14,9 @@ public class UnFreezeBall : MonoBehaviour
 
     private bool used;
 
-    // Update is called once per frame
+    /// <summary>
+    /// Set Rigidbody to Dynamic and Start Timer
+    /// </summary>
     void Update()
     {
         if (used == false)

@@ -56,7 +56,7 @@ public class DrawLine : MonoBehaviour
     }
 
     /// <summary>
-    /// Create line and set points.
+    /// Create line and set points
     /// </summary>
     private void CreateLine()
     {
@@ -76,13 +76,18 @@ public class DrawLine : MonoBehaviour
         edgeCollider.points = linePoints.ToArray();
     }
 
-
+    /// <summary>
+    /// Add new point to renderer and collider
+    /// Updates Draw Distance
+    /// </summary>
+    /// <param name="newPoint"></param>
     private void UpdateLine(Vector2 newPoint)
     {
         linePoints.Add(newPoint);
 
         lineRenderer.positionCount++;
         int index = lineRenderer.positionCount - 1;
+
         currentDrawDistance += Vector2.Distance(lineRenderer.GetPosition(index - 1), lineRenderer.GetPosition(index));
         slider.value = 1 - (currentDrawDistance / maxDrawDistance);
 
@@ -96,6 +101,10 @@ public class DrawLine : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Toggles the ability to draw
+    /// </summary>
+    /// <param name="canDraw"></param>
     public void CanDraw(bool canDraw)
     {
         this.canDraw = canDraw;

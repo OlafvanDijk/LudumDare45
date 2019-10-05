@@ -12,6 +12,10 @@ public class OutOfBounds : MonoBehaviour
 
     private bool finish;
 
+    /// <summary>
+    /// Invoke event, Destroy player
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other.tag);
@@ -25,6 +29,9 @@ public class OutOfBounds : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Player has finished stop doing anything
+    /// </summary>
     public void Finish()
     {
         finish = true;
