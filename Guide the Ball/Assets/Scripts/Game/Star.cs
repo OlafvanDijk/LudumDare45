@@ -9,6 +9,10 @@ public class Star : MonoBehaviour
     [SerializeField]
     private UnityEvent CollectStar;
 
+    /// <summary>
+    /// Invoke event, Destroy star
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))

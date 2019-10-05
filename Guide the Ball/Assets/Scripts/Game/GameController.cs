@@ -45,6 +45,9 @@ public class GameController : MonoBehaviour
     
     private bool timer;
 
+    /// <summary>
+    /// Update timer
+    /// </summary>
     private void Update()
     {
         if (timer)
@@ -60,6 +63,9 @@ public class GameController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Call when a star has been collected
+    /// </summary>
     public void AddStar()
     {
         starCount++;
@@ -67,6 +73,12 @@ public class GameController : MonoBehaviour
         audio.Play();
     }
 
+    /// <summary>
+    /// Player has reached finish
+    /// Disable timer
+    /// Set stars
+    /// Show canvas
+    /// </summary>
     public void Finish()
     {
         timer = false;
@@ -87,11 +99,17 @@ public class GameController : MonoBehaviour
         winCanvas.SetActive(true);
     }
 
+    /// <summary>
+    /// Activate Losing Canvas
+    /// </summary>
     public void LoseGame()
     {
         loseCanvas.SetActive(true);
     }
 
+    /// <summary>
+    /// Start Game Timer
+    /// </summary>
     public void StartTimer()
     {
         timerCanvas.SetActive(true);
