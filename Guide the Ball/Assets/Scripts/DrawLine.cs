@@ -15,6 +15,8 @@ public class DrawLine : MonoBehaviour
     private EdgeCollider2D edgeCollider;
     private List<Vector2> linePoints;
 
+    private bool canDraw = true;
+
     private void Awake()
     {
         linePoints = new List<Vector2>();
@@ -25,19 +27,22 @@ public class DrawLine : MonoBehaviour
     /// </summary>
     void Update()
     {
-        //Left Click
-        if (Input.GetMouseButtonDown(0))
+        if (canDraw)
         {
-            CreateLine();
-        }
-
-        //Hold Left Click
-        if (Input.GetMouseButton(0))
-        {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            if (Vector2.Distance(mousePosition, linePoints[linePoints.Count - 1]) > minUpdateDistance)
+            //Left Click
+            if (Input.GetMouseButtonDown(0))
             {
-                UpdateLine(mousePosition);
+                CreateLine();
+            }
+
+            //Hold Left Click
+            if (Input.GetMouseButton(0))
+            {
+                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                if (Vector2.Distance(mousePosition, linePoints[linePoints.Count - 1]) > minUpdateDistance)
+                {
+                    UpdateLine(mousePosition);
+                }
             }
         }
     }
@@ -72,5 +77,10 @@ public class DrawLine : MonoBehaviour
         lineRenderer.SetPosition(lineRenderer.positionCount - 1, newPoint);
 
         edgeCollider.points = linePoints.ToArray();
+    }
+
+    public void CanDraw(bool canDraw)
+    {
+        this.canDraw = canDraw;
     }
 }
