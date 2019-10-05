@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DrawLine : MonoBehaviour
 {
@@ -9,12 +10,19 @@ public class DrawLine : MonoBehaviour
 
     [SerializeField]
     [Range(0,1)]
-    private float minUpdateDistance;
+    private float minUpdateDistance = 10;
+
+    [SerializeField]
+    private float maxDrawDistance;
+
+    [SerializeField]
+    private Slider slider;
 
     private LineRenderer lineRenderer;
     private EdgeCollider2D edgeCollider;
     private List<Vector2> linePoints;
 
+    private float currentDrawDistance;
     private bool canDraw = true;
 
     private void Awake()
@@ -74,9 +82,18 @@ public class DrawLine : MonoBehaviour
         linePoints.Add(newPoint);
 
         lineRenderer.positionCount++;
-        lineRenderer.SetPosition(lineRenderer.positionCount - 1, newPoint);
+        int index = lineRenderer.positionCount - 1;
+        currentDrawDistance += Vector2.Distance(lineRenderer.GetPosition(index - 1), lineRenderer.GetPosition(index));
+        slider.value = 1 - (currentDrawDistance / maxDrawDistance);
+
+        lineRenderer.SetPosition(index, newPoint);
 
         edgeCollider.points = linePoints.ToArray();
+
+        if (currentDrawDistance >= maxDrawDistance)
+        {
+            canDraw = false;
+        }
     }
 
     public void CanDraw(bool canDraw)
