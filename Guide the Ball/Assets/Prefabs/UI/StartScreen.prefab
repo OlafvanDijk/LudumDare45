@@ -1325,6 +1325,7 @@ GameObject:
   - component: {fileID: 3101988653386932997}
   - component: {fileID: 7538314089554527317}
   - component: {fileID: 4696413039514481261}
+  - component: {fileID: 8923348594610530364}
   m_Layer: 5
   m_Name: StartScreen
   m_TagString: Untagged
@@ -1414,6 +1415,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8923348594610530364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6678535527831840412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88cd8bc205243764497de6e9af1a22d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelSelect: {fileID: 0}
 --- !u!1 &6893695935789289671
 GameObject:
   m_ObjectHideFlags: 0
@@ -1677,7 +1691,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7129693761744447690}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8923348594610530364}
+        m_MethodName: StartGameButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8562882514752096570
 GameObject:
   m_ObjectHideFlags: 0
