@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class GameController : MonoBehaviour
 {
@@ -32,6 +33,9 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI timerText;
 
+    [SerializeField]
+    private GameObject retryButton;
+
     [Header("Audio")]
     [SerializeField]
     private AudioClip pickupStar;
@@ -41,6 +45,10 @@ public class GameController : MonoBehaviour
 
     [SerializeField]
     private AudioSource audio;
+
+    [Header("Events")]
+    [SerializeField]
+    private UnityEvent loseGame;
 
     private int starCount;
     
@@ -97,7 +105,12 @@ public class GameController : MonoBehaviour
 
         audio.clip = finish;
         audio.Play();
+        
         winCanvas.SetActive(true);
+        if (starCount < 3)
+        {
+            retryButton.SetActive(true);
+        }
     }
 
     /// <summary>
@@ -106,6 +119,7 @@ public class GameController : MonoBehaviour
     public void LoseGame()
     {
         timer = false;
+        loseGame.Invoke();
         loseCanvas.SetActive(true);
     }
 
