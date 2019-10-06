@@ -105,6 +105,7 @@ public class GameController : MonoBehaviour
     /// </summary>
     public void LoseGame()
     {
+        timer = false;
         loseCanvas.SetActive(true);
     }
 
