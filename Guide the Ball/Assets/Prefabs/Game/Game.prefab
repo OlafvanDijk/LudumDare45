@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1751791663064944286}
   - component: {fileID: 1751791663064944289}
   - component: {fileID: 5075379387192812340}
+  - component: {fileID: -8403241990093634342}
   - component: {fileID: 1751791661330874304}
   m_Layer: 0
   m_Name: Game
@@ -47,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   line: {fileID: 4797729389143955491, guid: f4c3ebdf91e6f8c4ba28c9efebc8a831, type: 3}
   minUpdateDistance: 0.2
+  maxDrawDistance: 0
+  slider: {fileID: 0}
 --- !u!114 &5075379387192812340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +75,18 @@ MonoBehaviour:
   pickupStar: {fileID: 8300000, guid: 1cf2daacb642a394286cca811429f247, type: 3}
   finish: {fileID: 8300000, guid: 7cc98ff8a80025d4b8e05f8fa2ea3f08, type: 3}
   audio: {fileID: 1751791661330874304}
+--- !u!114 &-8403241990093634342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751791663064944288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a03a730333de634db1762abd5db0b7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &1751791661330874304
 AudioSource:
   m_ObjectHideFlags: 0

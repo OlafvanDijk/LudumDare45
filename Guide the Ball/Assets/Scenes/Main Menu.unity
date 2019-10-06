@@ -1180,10 +1180,5 @@ PrefabInstance:
       propertyPath: levelSelect
       value: 
       objectReference: {fileID: 1662792439}
-    - target: {fileID: 7999219891739622710, guid: 3371b998f3f92ac43bf44c04f620a03c,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -153
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3371b998f3f92ac43bf44c04f620a03c, type: 3}
